@@ -41,6 +41,30 @@ spec:
               ingressclass:
                 type: string
                 description: "Ingress class, if not specified then all NetScaler Ingress Controllers in the cluster will process the resource otherwise only the controller with that ingress class will process this resource"
+              gatewayClassName:
+                type: string
+                description: "Name of the GatewayClass that this SSL profile should be applied to."
+              targetRef:
+                type: array
+                description: "A list of target resources where this profile will be applied."
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: "Name of the target resource."
+                    namespace:
+                      type: string
+                      description: "Namespace of the target resource."
+                    group:
+                      type: string
+                      description: "Group of the target resource."
+                    kind:
+                      type: string
+                      description: "Kind of the target resource."
+                    sectionName:
+                      type: string
+                      description: "Specific section within the target resource."
               rewrite-policies:
                 type: array
                 items:
